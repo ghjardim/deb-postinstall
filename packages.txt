@@ -22,6 +22,7 @@ i3lock
 i3blocks
 suckless-tools
 rofi 
+numlockx
 
 # Arquivos
 pcmanfm
