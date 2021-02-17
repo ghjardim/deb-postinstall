@@ -1,0 +1,156 @@
+# ---------------------------------------------------------
+#  INÍCIO
+# ---------------------------------------------------------
+
+## Pacote essenciais
+build-essential
+curl
+lynx
+
+## Firmware non-free
+firmware-linux-nonfree
+amd64-microcode
+firmware-atheros
+firmware-realtek
+
+## Básicos do i3
+xorg
+slim
+# slim-themes
+i3-wm
+i3lock
+i3blocks
+suckless-tools
+rofi 
+
+# Arquivos
+pcmanfm
+ranger
+rar
+unrar
+
+# Terminal e notificações
+xfce4-terminal
+dunst
+dbus
+qdbus
+
+# Aparência
+compton
+lxappearance
+numix-gtk-theme
+numix-icon-theme
+numix-icon-theme-circle
+papirus-icon-theme
+arc-theme
+breeze-cursor-theme
+
+# Wallpaper
+feh
+
+# Gerenciador de rede
+wicd-gtk
+wicd-curses
+wicd-cli
+
+# Áudio
+pulseaudio
+pavucontrol
+
+# Screenshoter
+scrot
+
+# Visualizador de imagens
+sxiv
+
+# Editor
+vim
+
+# Informações sobre o sistema
+htop
+
+# Agente de autenticação
+policykit-1-gnome
+
+# Integração com o shell
+fzf
+
+# Utilitários do sistema
+gdebi
+gparted
+
+# ---------------------------------------------------------
+#  PROGRAMAÇÃO / Outras dependências
+# ---------------------------------------------------------
+
+python
+python3
+python-pip
+python3-pip
+
+# ---------------------------------------------------------
+#  INTERNET
+# ---------------------------------------------------------
+
+# Navegadores
+surf
+qutebrowser
+chromium
+
+# Torrent
+qbittorrent
+
+# Leitor de RSS
+newsboat
+
+# IRC
+irssi
+
+# ---------------------------------------------------------
+#  MULTIMÍDIA
+# ---------------------------------------------------------
+
+# Download de vídeos
+youtube-dl
+
+# Player de vídeo
+mpv
+
+# Player de música
+cmus
+
+# Editor de áudio
+audacity
+
+# ---------------------------------------------------------
+#  ESCRITÓRIO
+# ----------------------------------------------------------
+
+# LibreOffice
+libreoffice
+libreoffice-l10n-pt-br
+libreoffice-gnome
+libreoffice-style-breeze
+
+# Leitor de PDF
+zathura
+
+# ---------------------------------------------------------
+#  GRÁFICOS
+# ---------------------------------------------------------
+
+ttf-mscorefonts-installer
+fonts-open-sans
+
+# ---------------------------------------------------------
+#  ZSH
+# ---------------------------------------------------------
+
+zsh
+command-not-found
+
+# ---------------------------------------------------------
+#  DOTFILES 
+# ---------------------------------------------------------
+
+yadm
