@@ -10,7 +10,7 @@ echo ""
 echo "------------------------------------"
 echo " INSTALLING THE PACKAGES..."
 echo "------------------------------------"
-cat packages.txt | grep -v "#" | xargs sudo apt install
+cat packages.txt | grep -v "#" | xargs sudo apt install -y
 
 echo ""
 echo " All packages now installed."
@@ -73,7 +73,7 @@ echo " BUILDING QUTEBROWSER..."
 echo "------------------------------------"
 echo " [i] This is for you to get latest, more secure version of Qutebrowser"
 echo "     Only the latest version is compatible with my dotfiles."
-sudo apt install --no-install-recommends git ca-certificates python3 python3-venv asciidoc libglib2.0-0 libgl1 libfontconfig1 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 libxcb-shape0 libxcb-xfixes0 libxcb-xinerama0 libxcb-xkb1 libxkbcommon-x11-0 libdbus-1-3 libyaml-dev gcc python3-dev libnss3
+sudo apt install -y --no-install-recommends git ca-certificates python3 python3-venv asciidoc libglib2.0-0 libgl1 libfontconfig1 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 libxcb-shape0 libxcb-xfixes0 libxcb-xinerama0 libxcb-xkb1 libxkbcommon-x11-0 libdbus-1-3 libyaml-dev gcc python3-dev libnss3
 cd $HOME/Applications/
 git clone "https://github.com/qutebrowser/qutebrowser.git"
 cd qutebrowser
