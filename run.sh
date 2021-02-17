@@ -2,13 +2,13 @@
 
 echo ""
 echo "------------------------------------"
-echo " (1/8) UPDATING YOUR APT CACHE..."
+echo " (1/9) UPDATING YOUR APT CACHE..."
 echo "------------------------------------"
 sudo apt update
 
 echo ""
 echo "------------------------------------"
-echo " (2/8) INSTALLING THE PACKAGES..."
+echo " (2/9) INSTALLING THE PACKAGES..."
 echo "------------------------------------"
 cat packages.txt | grep -v "#" | xargs sudo apt install -y
 sudo apt update
@@ -19,14 +19,14 @@ echo " All packages now installed."
 
 echo ""
 echo "------------------------------------"
-echo " (3/8) CLONING DOTFILES..."
+echo " (3/9) CLONING DOTFILES..."
 echo "------------------------------------"
 yadm clone "https://github.com/ghjardim/dotfiles"
 cd
 
 echo ""
 echo "------------------------------------"
-echo " (4/8) GETTING FONTS..."
+echo " (4/9) GETTING FONTS..."
 echo "------------------------------------"
 echo " [i] These fonts does not have Debian packages associated."
 echo ""
@@ -40,14 +40,14 @@ cd
 
 echo ""
 echo "------------------------------------"
-echo " (5/8) INSTALLING OH-MY-ZSH..."
+echo " (5/9) INSTALLING OH-MY-ZSH..."
 echo "------------------------------------"
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 cd
 
 echo ""
 echo "------------------------------------"
-echo " (6/8) DOWNLOADING ALACRITTY..."
+echo " (6/9) DOWNLOADING ALACRITTY..."
 echo "------------------------------------"
 mkdir $HOME/Applications/
 cd $HOME/Applications/
@@ -62,7 +62,7 @@ cd
 
 echo ""
 echo "------------------------------------"
-echo " (7/8) BUILDING I3-GAPS..."
+echo " (7/9) BUILDING I3-GAPS..."
 echo "------------------------------------"
 cd $HOME/Applications/
 git clone "https://github.com/maestrogerardo/i3-gaps-deb"
@@ -72,7 +72,7 @@ cd
 
 echo ""
 echo "------------------------------------"
-echo " (8/8) BUILDING QUTEBROWSER..."
+echo " (8/9) BUILDING QUTEBROWSER..."
 echo "------------------------------------"
 echo " [i] This is for you to get latest, more secure version of Qutebrowser"
 echo "     Only the latest version is compatible with my dotfiles."
@@ -82,3 +82,13 @@ git clone "https://github.com/qutebrowser/qutebrowser.git"
 cd qutebrowser
 python3 scripts/mkvenv.py
 # Failed building
+cd
+
+echo ""
+echo "------------------------------------"
+echo " (9/9) GETTING PFETCH..."
+echo "------------------------------------"
+cd $HOME/.local/bin
+wget "https://raw.githubusercontent.com/dylanaraps/pfetch/master/pfetch"
+chmod +x pfetch
+cd
