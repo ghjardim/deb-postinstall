@@ -29,6 +29,8 @@ pcmanfm
 ranger
 rar
 unrar
+zip
+unzip
 
 # Terminal e notificações
 xfce4-terminal

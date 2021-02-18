@@ -1,9 +1,12 @@
 #!/bin/bash
 
+
+
 echo ""
 echo "------------------------------------"
 echo " (1/8) UPDATING YOUR APT CACHE..."
 echo "------------------------------------"
+echo ""
 read -n 1 -s -r -p $'Press enter to continue...\n' key; while [ "$key" != '' ]; do read -n 1 -s -r -p $'Wrong key! Press enter to continue...\n' key; done
 
 sudo apt update
@@ -14,6 +17,7 @@ echo ""
 echo "------------------------------------"
 echo " (2/8) INSTALLING THE PACKAGES..."
 echo "------------------------------------"
+echo ""
 
 read -n 1 -s -r -p $'Press enter to continue...\n' key; while [ "$key" != '' ]; do read -n 1 -s -r -p $'Wrong key! Press enter to continue...\n' key; done
 
@@ -30,9 +34,12 @@ echo ""
 echo "------------------------------------"
 echo " (3/8) CLONING DOTFILES..."
 echo "------------------------------------"
+echo ""
 
 read -n 1 -s -r -p $'Press enter to continue...\n' key; while [ "$key" != '' ]; do read -n 1 -s -r -p $'Wrong key! Press enter to continue...\n' key; done
 
+# TODO: fix cloning bugs (they do not merge)
+# Perhaps the bugs have to do with .bashrc
 yadm clone "https://github.com/ghjardim/dotfiles"
 cd
 
@@ -46,6 +53,9 @@ echo " [i] These fonts does not have Debian packages associated."
 echo ""
 
 read -n 1 -s -r -p $'Press enter to continue...\n' key; while [ "$key" != '' ]; do read -n 1 -s -r -p $'Wrong key! Press enter to continue...\n' key; done
+
+# TODO
+# [ ] mkdir creates only if the folder does not exist
 
 mkdir $HOME/.fonts/
 mkdir /tmp/fonts/
@@ -62,15 +72,22 @@ echo "------------------------------------"
 echo " (5/8) DOWNLOADING AND COMPILING"
 echo "       ALACRITTY..."
 echo "------------------------------------"
+echo ""
 
 read -n 1 -s -r -p $'Press enter to continue...\n' key; while [ "$key" != '' ]; do read -n 1 -s -r -p $'Wrong key! Press enter to continue...\n' key; done
 
 mkdir $HOME/Applications/
 cd $HOME/Applications/
+echo " >>> Cloning alacritty..."
 git clone https://github.com/alacritty/alacritty.git
 cd alacritty
+echo " >>> Installing Rust compiler..."
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+echo " >>> Running source $HOME/.cargo/env ..."
+source $HOME/.cargo/env
+echo " >>> Installing other dependencies to compile..."
 sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev python3
+echo " >>> Building Alacritty..."
 cargo build --release
 	# Error: cargo not found
 mv ./target/release/alacritty ~/.local/bin/
@@ -82,10 +99,13 @@ echo ""
 echo "------------------------------------"
 echo " (6/8) BUILDING I3-GAPS..."
 echo "------------------------------------"
+echo " [!] In this step, stay prepared to hit [RETURN] when asked"
+echo ""
 
 read -n 1 -s -r -p $'Press enter to continue...\n' key; while [ "$key" != '' ]; do read -n 1 -s -r -p $'Wrong key! Press enter to continue...\n' key; done
 
 cd $HOME/Applications/
+echo " >>> Cloning into $HOME/Applications/i3-gaps-deb..."
 git clone "https://github.com/maestrogerardo/i3-gaps-deb"
 cd i3-gaps-deb
 ./i3-gaps-deb
@@ -100,6 +120,7 @@ echo " (7/8) BUILDING QUTEBROWSER..."
 echo "------------------------------------"
 echo " [i] This is for you to get latest, more secure version of Qutebrowser"
 echo "     Only the latest version is compatible with my dotfiles."
+echo ""
 
 read -n 1 -s -r -p $'Press enter to continue...\n' key; while [ "$key" != '' ]; do read -n 1 -s -r -p $'Wrong key! Press enter to continue...\n' key; done
 
@@ -119,6 +140,7 @@ echo " (8/8) INSTALLING OH-MY-ZSH..."
 echo " ...And its components..."
 echo "------------------------------------"
 echo " [i] IMPORTANT: EXIT ZSH when its installed!!!!"
+echo ""
 
 read -n 1 -s -r -p $'Press enter to continue...\n' key; while [ "$key" != '' ]; do read -n 1 -s -r -p $'Wrong key! Press enter to continue...\n' key; done
 
@@ -136,6 +158,7 @@ git clone https://github.com/zdharma/fast-syntax-highlighting.git \
 echo ""
 echo "\n >>> Getting zsh-autosuggestions..."
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+echo "\n >>> When ZSH launched, it said that pfetch wasn't found. It is a bug, and pfetch will run on next reboot."
 
 echo ""
 echo "------------------------------------"
