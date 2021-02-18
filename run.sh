@@ -57,8 +57,8 @@ read -n 1 -s -r -p $'Press enter to continue...\n' key; while [ "$key" != '' ]; 
 # TODO
 # [ ] mkdir creates only if the folder does not exist
 
-mkdir $HOME/.fonts/
-mkdir /tmp/fonts/
+[ ! -d $HOME/.fonts/ ] && mkdir $HOME/.fonts/
+[ ! -d /tmp/fonts/ ] && mkdir /tmp/fonts/
 cd /tmp/fonts/
 wget "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/UbuntuMono.zip"
 unzip UbuntuMono.zip
@@ -129,7 +129,7 @@ cd $HOME/Applications/
 git clone "https://github.com/qutebrowser/qutebrowser.git"
 cd qutebrowser
 python3 scripts/mkvenv.py
-# Failed building
+# Failed building??
 cd
 
 
@@ -139,12 +139,13 @@ echo "------------------------------------"
 echo " (8/8) INSTALLING OH-MY-ZSH..."
 echo " ...And its components..."
 echo "------------------------------------"
-echo " [i] IMPORTANT: EXIT ZSH when its installed!!!!"
+#echo " [i] IMPORTANT: EXIT ZSH when its installed!!!!"
 echo ""
 
 read -n 1 -s -r -p $'Press enter to continue...\n' key; while [ "$key" != '' ]; do read -n 1 -s -r -p $'Wrong key! Press enter to continue...\n' key; done
 
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+#echo " >>> REMEMBER TO EXIT ZSH!"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 cd
 echo "\n >>> Getting pfetch..."
 cd $HOME/.local/bin
